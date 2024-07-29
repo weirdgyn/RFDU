@@ -1,0 +1,103 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"20 utils.c
+[; ;utils.c: 20: uint32_t packLong(uint8_t* data) {
+[v _packLong `(ul ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _packLong ]
+[v _data `*uc ~T0 @X0 1 r1 ]
+[f ]
+"22
+[; ;utils.c: 22:     uint32_t result;
+[v _result `ul ~T0 @X0 1 a ]
+"24
+[; ;utils.c: 24:     result = 0x00000000;
+[e = _result -> -> -> 0 `i `l `ul ]
+"26
+[; ;utils.c: 26:     result = (uint32_t) data[0] << 24;
+[e = _result << -> *U + _data * -> -> 0 `i `x -> -> # *U _data `i `x `ul -> 24 `i ]
+"27
+[; ;utils.c: 27:     result |= (uint32_t) data[1] << 16;
+[e =| _result << -> *U + _data * -> -> 1 `i `x -> -> # *U _data `i `x `ul -> 16 `i ]
+"28
+[; ;utils.c: 28:     result |= (uint32_t) data[2] << 8;
+[e =| _result << -> *U + _data * -> -> 2 `i `x -> -> # *U _data `i `x `ul -> 8 `i ]
+"29
+[; ;utils.c: 29:     result |= (uint32_t) data[3];
+[e =| _result -> *U + _data * -> -> 3 `i `x -> -> # *U _data `i `x `ul ]
+"31
+[; ;utils.c: 31:     return result;
+[e ) _result ]
+[e $UE 1  ]
+"32
+[; ;utils.c: 32: }
+[e :UE 1 ]
+}
+"39
+[; ;utils.c: 39: uint16_t packWord(uint8_t* data) {
+[v _packWord `(us ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _packWord ]
+[v _data `*uc ~T0 @X0 1 r1 ]
+[f ]
+"41
+[; ;utils.c: 41:     uint16_t result;
+[v _result `us ~T0 @X0 1 a ]
+"43
+[; ;utils.c: 43:     result = 0x0000;
+[e = _result -> -> 0 `i `us ]
+"45
+[; ;utils.c: 45:     result |= (uint16_t) data[0] << 8;
+[e =| _result -> << -> -> *U + _data * -> -> 0 `i `x -> -> # *U _data `i `x `us `ui -> 8 `i `us ]
+"46
+[; ;utils.c: 46:     result |= (uint16_t) data[1];
+[e =| _result -> -> *U + _data * -> -> 1 `i `x -> -> # *U _data `i `x `us `us ]
+"48
+[; ;utils.c: 48:     return result;
+[e ) _result ]
+[e $UE 2  ]
+"49
+[; ;utils.c: 49: }
+[e :UE 2 ]
+}
+"57
+[; ;utils.c: 57: void unpackLong(uint32_t value, uint8_t* data) {
+[v _unpackLong `(v ~T0 @X0 1 ef2`ul`*uc ]
+{
+[e :U _unpackLong ]
+[v _value `ul ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+[f ]
+"59
+[; ;utils.c: 59:     data[0] = (value & 0XFF);
+[e = *U + _data * -> -> 0 `i `x -> -> # *U _data `i `x -> & _value -> -> -> 255 `i `l `ul `uc ]
+"60
+[; ;utils.c: 60:     data[1] = (value >> 8) & 0xFF;
+[e = *U + _data * -> -> 1 `i `x -> -> # *U _data `i `x -> & >> _value -> 8 `i -> -> -> 255 `i `l `ul `uc ]
+"61
+[; ;utils.c: 61:     data[2] = (value >> 16) & 0xFF;
+[e = *U + _data * -> -> 2 `i `x -> -> # *U _data `i `x -> & >> _value -> 16 `i -> -> -> 255 `i `l `ul `uc ]
+"62
+[; ;utils.c: 62:     data[3] = (value >> 24) & 0xFF;
+[e = *U + _data * -> -> 3 `i `x -> -> # *U _data `i `x -> & >> _value -> 24 `i -> -> -> 255 `i `l `ul `uc ]
+"63
+[; ;utils.c: 63: }
+[e :UE 3 ]
+}
+"71
+[; ;utils.c: 71: void unpackWord(uint16_t value, uint8_t* data) {
+[v _unpackWord `(v ~T0 @X0 1 ef2`us`*uc ]
+{
+[e :U _unpackWord ]
+[v _value `us ~T0 @X0 1 r1 ]
+[v _data `*uc ~T0 @X0 1 r2 ]
+[f ]
+"73
+[; ;utils.c: 73:     data[0] = value & 0xFF;
+[e = *U + _data * -> -> 0 `i `x -> -> # *U _data `i `x -> & -> _value `ui -> -> 255 `i `ui `uc ]
+"74
+[; ;utils.c: 74:     data[1] = (value >> 8) & 0xFF;
+[e = *U + _data * -> -> 1 `i `x -> -> # *U _data `i `x -> & >> -> _value `ui -> 8 `i -> -> 255 `i `ui `uc ]
+"75
+[; ;utils.c: 75: }
+[e :UE 4 ]
+}

@@ -1,0 +1,109 @@
+make -f nbproject/Makefile-Config_2.mk SUBPROJECTS= .clean-conf
+make[1]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+rm -f  -r .ca/build/Config_2/production
+rm -f  -r .ca/dist/Config_2/production
+make[1]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+[32mCLEAN SUCCESSFUL (total time: 106ms)[0m
+make -f nbproject/Makefile-Config_2.mk SUBPROJECTS= .build-conf
+make  -f nbproject/Makefile-Config_2.mk .ca/dist/Config_2/production/i2c_MASTER.X.production.hex
+make[2]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+"C:\Program Files\Microchip\xc8\v2.46\bin\xc8-cc.exe"  -mcpu=16LF1618 -c   -mdfp="C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8"  -fno-short-double -fno-short-float -O2 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_Config_2=Config_2  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/Config_2/production/mcc_generated_files/system/src/config_bits.p1 mcc_generated_files/system/src/config_bits.c 
+make[2]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+make[2]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+"C:\Program Files\Microchip\xc8\v2.46\bin\xc8-cc.exe"  -mcpu=16LF1618 -c   -mdfp="C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8"  -fno-short-double -fno-short-float -O2 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_Config_2=Config_2  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/Config_2/production/main.p1 main.c 
+make[2]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+make[2]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+"C:\Program Files\Microchip\xc8\v2.46\bin\xc8-cc.exe"  -mcpu=16LF1618 -c   -mdfp="C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8"  -fno-short-double -fno-short-float -O2 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_Config_2=Config_2  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/Config_2/production/mcc_generated_files/system/src/interrupt.p1 mcc_generated_files/system/src/interrupt.c 
+make[2]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+make[2]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+"C:\Program Files\Microchip\xc8\v2.46\bin\xc8-cc.exe"  -mcpu=16LF1618 -c   -mdfp="C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8"  -fno-short-double -fno-short-float -O2 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_Config_2=Config_2  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/Config_2/production/mcc_generated_files/adc/src/adc.p1 mcc_generated_files/adc/src/adc.c 
+make[2]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+make[2]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+"C:\Program Files\Microchip\xc8\v2.46\bin\xc8-cc.exe"  -mcpu=16LF1618 -c   -mdfp="C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8"  -fno-short-double -fno-short-float -O2 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_Config_2=Config_2  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/Config_2/production/mcc_generated_files/system/src/system.p1 mcc_generated_files/system/src/system.c 
+make[2]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+make[2]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+"C:\Program Files\Microchip\xc8\v2.46\bin\xc8-cc.exe"  -mcpu=16LF1618 -c   -mdfp="C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8"  -fno-short-double -fno-short-float -O2 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_Config_2=Config_2  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/Config_2/production/mcc_generated_files/system/src/pins.p1 mcc_generated_files/system/src/pins.c 
+make[2]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+make[2]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+"C:\Program Files\Microchip\xc8\v2.46\bin\xc8-cc.exe"  -mcpu=16LF1618 -c   -mdfp="C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8"  -fno-short-double -fno-short-float -O2 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_Config_2=Config_2  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/Config_2/production/mcc_generated_files/uart/src/eusart.p1 mcc_generated_files/uart/src/eusart.c 
+make[2]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+make[2]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+"C:\Program Files\Microchip\xc8\v2.46\bin\xc8-cc.exe"  -mcpu=16LF1618 -c   -mdfp="C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8"  -fno-short-double -fno-short-float -O2 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_Config_2=Config_2  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/Config_2/production/mcc_generated_files/i2c_host/src/mssp.p1 mcc_generated_files/i2c_host/src/mssp.c 
+make[2]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+make[2]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+"C:\Program Files\Microchip\xc8\v2.46\bin\xc8-cc.exe"  -mcpu=16LF1618 -c   -mdfp="C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8"  -fno-short-double -fno-short-float -O2 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_Config_2=Config_2  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits   -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o .ca/build/Config_2/production/mcc_generated_files/system/src/clock.p1 mcc_generated_files/system/src/clock.c 
+make[2]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+make[2]: Entering directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+"C:\Program Files\Microchip\xc8\v2.46\bin\xc8-cc.exe"  -mcpu=16LF1618 -Wl,-Map=.ca/dist/Config_2/production/i2c_MASTER.X.production.map  -DXPRJ_Config_2=Config_2  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8"  -fno-short-double -fno-short-float -O2 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto      -Wl,--memorysummary,.ca/dist/Config_2/production/memoryfile.xml -o .ca/dist/Config_2/production/i2c_MASTER.X.production.elf  .ca/build/Config_2/production/mcc_generated_files/adc/src/adc.p1 .ca/build/Config_2/production/mcc_generated_files/i2c_host/src/mssp.p1 .ca/build/Config_2/production/mcc_generated_files/system/src/clock.p1 .ca/build/Config_2/production/mcc_generated_files/system/src/pins.p1 .ca/build/Config_2/production/mcc_generated_files/system/src/config_bits.p1 .ca/build/Config_2/production/mcc_generated_files/system/src/interrupt.p1 .ca/build/Config_2/production/mcc_generated_files/system/src/system.p1 .ca/build/Config_2/production/mcc_generated_files/uart/src/eusart.p1 .ca/build/Config_2/production/main.p1     
+C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul16.c:15:: advisory: (1510) non-reentrant function "___wmul" appears in multiple call graphs and has been duplicated by the compiler
+mcc_generated_files/adc/src/adc.c:106:: warning: (520) function "_ADC_GetConversion" is never called
+mcc_generated_files/adc/src/adc.c:129:: warning: (520) function "_ADC_TemperatureAcquisitionDelay" is never called
+mcc_generated_files/i2c_host/src/mssp.c:131:: warning: (520) function "_I2C1_Deinitialize" is never called
+mcc_generated_files/i2c_host/src/mssp.c:142:: warning: (520) function "_I2C1_Write" is never called
+mcc_generated_files/i2c_host/src/mssp.c:161:: warning: (520) function "_I2C1_Read" is never called
+mcc_generated_files/i2c_host/src/mssp.c:180:: warning: (520) function "_I2C1_WriteRead" is never called
+mcc_generated_files/i2c_host/src/mssp.c:199:: warning: (520) function "_I2C1_ErrorGet" is never called
+mcc_generated_files/i2c_host/src/mssp.c:206:: warning: (520) function "_I2C1_IsBusy" is never called
+mcc_generated_files/i2c_host/src/mssp.c:232:: warning: (520) function "_I2C1_ReadStart" is never called
+mcc_generated_files/i2c_host/src/mssp.c:238:: warning: (520) function "_I2C1_WriteStart" is never called
+mcc_generated_files/i2c_host/src/mssp.c:425:: warning: (2053) function "_I2C1_StartSend" is never called
+mcc_generated_files/i2c_host/src/mssp.c:473:: warning: (2053) function "_I2C1_InterruptsDisable" is never called
+mcc_generated_files/system/src/pins.c:119:: warning: (520) function "_PIN_MANAGER_IOC" is never called
+mcc_generated_files/system/src/interrupt.c:87:: warning: (520) function "_INT_ISR" is never called
+mcc_generated_files/system/src/interrupt.c:96:: warning: (520) function "_INT_CallBack" is never called
+mcc_generated_files/uart/src/eusart.c:115:: warning: (520) function "_EUSART_Deinitialize" is never called
+mcc_generated_files/uart/src/eusart.c:124:: warning: (520) function "_EUSART_Enable" is never called
+mcc_generated_files/uart/src/eusart.c:130:: warning: (520) function "_EUSART_Disable" is never called
+mcc_generated_files/uart/src/eusart.c:136:: warning: (520) function "_EUSART_TransmitEnable" is never called
+mcc_generated_files/uart/src/eusart.c:141:: warning: (520) function "_EUSART_TransmitDisable" is never called
+mcc_generated_files/uart/src/eusart.c:146:: warning: (520) function "_EUSART_ReceiveEnable" is never called
+mcc_generated_files/uart/src/eusart.c:151:: warning: (520) function "_EUSART_ReceiveDisable" is never called
+mcc_generated_files/uart/src/eusart.c:156:: warning: (520) function "_EUSART_SendBreakControlEnable" is never called
+mcc_generated_files/uart/src/eusart.c:161:: warning: (520) function "_EUSART_SendBreakControlDisable" is never called
+mcc_generated_files/uart/src/eusart.c:166:: warning: (520) function "_EUSART_AutoBaudSet" is never called
+mcc_generated_files/uart/src/eusart.c:178:: warning: (520) function "_EUSART_AutoBaudQuery" is never called
+mcc_generated_files/uart/src/eusart.c:183:: warning: (520) function "_EUSART_IsAutoBaudDetectOverflow" is never called
+mcc_generated_files/uart/src/eusart.c:188:: warning: (520) function "_EUSART_AutoBaudDetectOverflowReset" is never called
+mcc_generated_files/uart/src/eusart.c:198:: warning: (520) function "_EUSART_IsTxReady" is never called
+mcc_generated_files/uart/src/eusart.c:203:: warning: (520) function "_EUSART_IsTxDone" is never called
+mcc_generated_files/uart/src/eusart.c:208:: warning: (520) function "_EUSART_ErrorGet" is never called
+main.c:184:: warning: (520) function "_packWord" is never called
+main.c:612:: warning: (1393) possible hardware stack overflow detected; estimated stack depth: 17
+::: error: (1347) can't find 0x23 words (0x23 withtotal) for psect "stringtext7" in class "STRCODE" (largest unused contiguous range 0xD)
+Non line specific message::: advisory: (1493) updated 32-bit floating-point routines might trigger "can't find space" messages appearing after updating to this release; consider using the smaller 24-bit floating-point types
+::: error: (1347) can't find 0x22 words (0x22 withtotal) for psect "text57" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x22 words (0x22 withtotal) for psect "text68" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x1F words (0x1f withtotal) for psect "text48" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x1D words (0x1d withtotal) for psect "text8" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x1D words (0x1d withtotal) for psect "text45" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x1A words (0x1a withtotal) for psect "text26" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x1A words (0x1a withtotal) for psect "text28" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x19 words (0x19 withtotal) for psect "maintext" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x18 words (0x18 withtotal) for psect "idataBANK2" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x17 words (0x17 withtotal) for psect "text18" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x16 words (0x16 withtotal) for psect "text5" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x14 words (0x14 withtotal) for psect "stringtext2" in class "STRCODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x14 words (0x14 withtotal) for psect "text87" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x12 words (0x12 withtotal) for psect "stringtext3" in class "STRCODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x12 words (0x12 withtotal) for psect "text1" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0x12 words (0x12 withtotal) for psect "text12" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0xE words (0xe withtotal) for psect "text27" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0xE words (0xe withtotal) for psect "text32" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0xE words (0xe withtotal) for psect "text40" in class "CODE" (largest unused contiguous range 0xD)
+::: error: (1347) can't find 0xD words (0xd withtotal) for psect "stringtext9" in class "STRCODE" (largest unused contiguous range 0x2)
+::: error: (1347) can't find 0xC words (0xc withtotal) for psect "stringtext10" in class "STRCODE" (largest unused contiguous range 0x2)
+::: error: (1347) can't find 0xC words (0xc withtotal) for psect "text7" in class "CODE" (largest unused contiguous range 0x2)
+::: error: (1347) can't find 0xC words (0xc withtotal) for psect "text93" in class "CODE" (largest unused contiguous range 0x2)
+::: error: (1347) can't find 0xB words (0xb withtotal) for psect "text3" in class "CODE" (largest unused contiguous range 0x2)
+::: error: (1347) can't find 0xB words (0xb withtotal) for psect "text17" in class "CODE" (largest unused contiguous range 0x2)
+::: error: (1347) can't find 0xA words (0xa withtotal) for psect "text15" in class "CODE" (largest unused contiguous range 0x2)
+::: error: (1347) can't find 0xA words (0xa withtotal) for psect "text36" in class "CODE" (largest unused contiguous range 0x2)
+::: error: (1347) can't find 0xA words (0xa withtotal) for psect "text37" in class "CODE" (largest unused contiguous range 0x2)
+::: error: (1347) can't find 0x9 words (0x9 withtotal) for psect "text9" in class "CODE" (largest unused contiguous range 0x2)
+::: advisory: (1) too many errors (31)
+(908) exit status = 1
+make[2]: Leaving directory 'C:/Users/m.santucci/MPLABXProjects/i2c_MASTER.X'
+[31mmake[2]: *** [nbproject/Makefile-Config_2.mk:262: .ca/dist/Config_2/production/i2c_MASTER.X.production.hex] Error 1
+make[1]: *** [nbproject/Makefile-Config_2.mk:85: .build-conf] Error 2
+make: *** [nbproject/Makefile-impl.mk:39: .build-impl] Error 2[0m
+[31mBUILD FAILED (exit value 2, total time: 2s)[0m
