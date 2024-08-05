@@ -135,7 +135,7 @@ TM_Ka 3
 CS_X 10
 TM_X 7
 ]
-"88
+"77
 [e E40 . `uc
 ANTENNABAND_KU 0
 ANTENNABAND_KA 1
@@ -169,14 +169,8 @@ ANTENNABAND_X 2
 [v _main main `(i  1 e 2 0 ]
 "55 C:\Users\m.santucci\MPLABXProjects\i2c_MASTER.X\mcc_generated_files/adc/src/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
-"82
-[v _ADC_SelectChannel ADC_SelectChannel `(v  1 e 1 0 ]
-"88
-[v _ADC_StartConversion ADC_StartConversion `(v  1 e 1 0 ]
-"94
-[v _ADC_IsConversionDone ADC_IsConversionDone `(a  1 e 1 0 ]
-"100
-[v _ADC_GetConversionResult ADC_GetConversionResult `(us  1 e 2 0 ]
+"106
+[v _ADC_GetConversion ADC_GetConversion `(us  1 e 2 0 ]
 "134
 [v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
 "145
@@ -329,17 +323,17 @@ ANTENNABAND_X 2
 [v _Parse Parse `(a  1 e 1 0 ]
 "38 C:\Users\m.santucci\MPLABXProjects\i2c_MASTER.X\sspa.c
 [v _getADCValue getADCValue `(us  1 e 2 0 ]
-"62
+"51
 [v _ADC2Celsius ADC2Celsius `(s  1 e 2 0 ]
-"69
+"58
 [v _ADC2Amp ADC2Amp `(ul  1 e 4 0 ]
-"76
+"65
 [v _ADC2dBm ADC2dBm `(uc  1 e 1 0 ]
-"88
+"77
 [v _SSPA_setMute SSPA_setMute `(v  1 e 1 0 ]
-"116
+"105
 [v _SSPA_getTemp SSPA_getTemp `(v  1 e 1 0 ]
-"142
+"131
 [v _SSPA_getPOut SSPA_getPOut `(v  1 e 1 0 ]
 "20 C:\Users\m.santucci\MPLABXProjects\i2c_MASTER.X\utils.c
 [v _packLong packLong `(ul  1 e 4 0 ]
@@ -471,7 +465,7 @@ ANTENNABAND_X 2
 [v _LATB LATB `VEuc  1 e 1 @269 ]
 "2681
 [v _LATC LATC `VEuc  1 e 1 @270 ]
-[s S1672 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1667 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -481,8 +475,8 @@ ANTENNABAND_X 2
 `uc 1 LATC7 1 0 :1:7 
 ]
 "2698
-[u S1681 . 1 `S1672 1 . 1 0 ]
-[v _LATCbits LATCbits `VES1681  1 e 1 @270 ]
+[u S1676 . 1 `S1667 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1676  1 e 1 @270 ]
 "3017
 [v _BORCON BORCON `VEuc  1 e 1 @278 ]
 "3292
@@ -775,108 +769,95 @@ ANTENNABAND_X 2
 [v unpackWord@data data `*.4uc  1 p 1 2 ]
 "75
 } 0
-"88 C:\Users\m.santucci\MPLABXProjects\i2c_MASTER.X\sspa.c
+"77 C:\Users\m.santucci\MPLABXProjects\i2c_MASTER.X\sspa.c
 [v _SSPA_setMute SSPA_setMute `(v  1 e 1 0 ]
 {
 [v SSPA_setMute@band band `E40  1 a 1 wreg ]
 [v SSPA_setMute@band band `E40  1 a 1 wreg ]
 [v SSPA_setMute@mute mute `E36  1 p 1 4 ]
 [v SSPA_setMute@band band `E40  1 a 1 5 ]
-"110
+"99
 } 0
-"116
+"105
 [v _SSPA_getTemp SSPA_getTemp `(v  1 e 1 0 ]
 {
 [v SSPA_getTemp@band band `E40  1 a 1 wreg ]
-"118
+"107
 [v SSPA_getTemp@adc_value adc_value `us  1 a 2 42 ]
-"117
+"106
 [v SSPA_getTemp@channel channel `E9257  1 a 1 44 ]
-"116
+"105
 [v SSPA_getTemp@band band `E40  1 a 1 wreg ]
 [v SSPA_getTemp@band band `E40  1 a 1 45 ]
-"136
+"125
 } 0
-"62
+"51
 [v _ADC2Celsius ADC2Celsius `(s  1 e 2 0 ]
 {
-"64
+"53
 [v ADC2Celsius@result result `l  1 a 4 36 ]
-"63
+"52
 [v ADC2Celsius@value value `l  1 a 4 32 ]
-"62
+"51
 [v ADC2Celsius@v v `us  1 p 2 26 ]
-"67
+"56
 } 0
-"142
+"131
 [v _SSPA_getPOut SSPA_getPOut `(v  1 e 1 0 ]
 {
 [v SSPA_getPOut@band band `E40  1 a 1 wreg ]
-"144
+"133
 [v SSPA_getPOut@adc_value adc_value `us  1 a 2 40 ]
-"142
+"131
 [v SSPA_getPOut@band band `E40  1 a 1 wreg ]
 [v SSPA_getPOut@band band `E40  1 a 1 42 ]
-"167
+"156
 } 0
 "38
 [v _getADCValue getADCValue `(us  1 e 2 0 ]
 {
 [v getADCValue@channel channel `E9257  1 a 1 wreg ]
-"47
-[v getADCValue@i i `uc  1 a 1 7 ]
+"42
+[v getADCValue@i i `uc  1 a 1 11 ]
 "39
-[v getADCValue@sum sum `us  1 a 2 5 ]
+[v getADCValue@sum sum `us  1 a 2 9 ]
+"40
+[v getADCValue@sample sample `us  1 a 2 7 ]
 "38
 [v getADCValue@channel channel `E9257  1 a 1 wreg ]
-[v getADCValue@channel channel `E9257  1 a 1 4 ]
-"60
+[v getADCValue@channel channel `E9257  1 a 1 6 ]
+"49
 } 0
-"88 C:\Users\m.santucci\MPLABXProjects\i2c_MASTER.X\mcc_generated_files/adc/src/adc.c
-[v _ADC_StartConversion ADC_StartConversion `(v  1 e 1 0 ]
+"106 C:\Users\m.santucci\MPLABXProjects\i2c_MASTER.X\mcc_generated_files/adc/src/adc.c
+[v _ADC_GetConversion ADC_GetConversion `(us  1 e 2 0 ]
 {
-"92
+[v ADC_GetConversion@channel channel `E9234  1 a 1 wreg ]
+[v ADC_GetConversion@channel channel `E9234  1 a 1 wreg ]
+"109
+[v ADC_GetConversion@channel channel `E9234  1 a 1 1 ]
+"127
 } 0
-"82
-[v _ADC_SelectChannel ADC_SelectChannel `(v  1 e 1 0 ]
-{
-[v ADC_SelectChannel@channel channel `E9234  1 a 1 wreg ]
-[v ADC_SelectChannel@channel channel `E9234  1 a 1 wreg ]
-"85
-[v ADC_SelectChannel@channel channel `E9234  1 a 1 5 ]
-"86
-} 0
-"94
-[v _ADC_IsConversionDone ADC_IsConversionDone `(a  1 e 1 0 ]
-{
-"98
-} 0
-"100
-[v _ADC_GetConversionResult ADC_GetConversionResult `(us  1 e 2 0 ]
-{
-"104
-} 0
-"76 C:\Users\m.santucci\MPLABXProjects\i2c_MASTER.X\sspa.c
+"65 C:\Users\m.santucci\MPLABXProjects\i2c_MASTER.X\sspa.c
 [v _ADC2dBm ADC2dBm `(uc  1 e 1 0 ]
 {
-"78
+"67
 [v ADC2dBm@result result `l  1 a 4 32 ]
-"77
+"66
 [v ADC2dBm@value value `l  1 a 4 28 ]
-"76
+"65
 [v ADC2dBm@v v `us  1 p 2 26 ]
-"81
+"70
 } 0
-"69
+"58
 [v _ADC2Amp ADC2Amp `(ul  1 e 4 0 ]
 {
-"71
+"60
 [v ADC2Amp@result result `l  1 a 4 34 ]
-"70
+"59
 [v ADC2Amp@value value `l  1 a 4 30 ]
-"69
+"58
 [v ADC2Amp@v v `us  1 p 2 26 ]
-"74
+"63
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]

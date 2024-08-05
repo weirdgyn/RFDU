@@ -16913,26 +16913,12 @@ SSPA sspas[3] = {
 # 38 "sspa.c"
 adc_result_t getADCValue(adc_channel_t channel) {
     adc_result_t sum = 0;
+    adc_result_t sample;
 
-    ADC_SelectChannel(channel);
-
-    ADC_StartConversion();
-
-    _delay((unsigned long)((2)*(16000000/4000.0)));
-
-    for (uint8_t i = 0; i < 32; )
+    for (uint8_t i = 0; i < 32; i++ )
     {
-        adc_result_t sample;
-
-        if (ADC_IsConversionDone())
-        {
-            i++;
-            sample = ADC_GetConversionResult();
-            sum += sample;
-            ADC_StartConversion();
-
-            _delay((unsigned long)((2)*(16000000/4000.0)));
-        }
+        sample = ADC_GetConversion(channel);
+        sum += sample;
     }
 
     return sum >> 5;

@@ -16913,23 +16913,12 @@ SSPA sspas[3] = {
 # 38 "sspa.c"
 adc_result_t getADCValue(adc_channel_t channel) {
     adc_result_t sum = 0;
+    adc_result_t sample;
 
-    ADC_SelectChannel(channel);
-
-    ADC_StartConversion();
-
-    _delay((unsigned long)((2)*(16000000/4000.0)));
-
-    for (uint8_t i = 0; i < 32; )
+    for (uint8_t i = 0; i < 32; i++ )
     {
-        if (ADC_IsConversionDone())
-        {
-            i++;
-            sum += ADC_GetConversionResult();
-            ADC_StartConversion();
-
-            _delay((unsigned long)((2)*(16000000/4000.0)));
-        }
+        sample = ADC_GetConversion(channel);
+        sum += sample;
     }
 
     return sum >> 5;
@@ -16944,14 +16933,14 @@ int16_t ADC2Celsius(adc_result_t v) {
 
 uint32_t ADC2Amp(adc_result_t v) {
     int32_t value = (int32_t) v;
-    int32_t result = (uint16_t)(0) + (value * (uint16_t)(430)) / (uint16_t)(10240);
+    int32_t result = (uint16_t)(0) + (value * (uint16_t)(500)) / (uint16_t)(10240);
 
     return (uint32_t) result;
 }
 
 uint8_t ADC2dBm(adc_result_t v) {
     int32_t value = (int32_t) v;
-    int32_t result = (uint16_t)(34) + (value * (uint16_t)(14319)) / (uint16_t)(1024000);
+    int32_t result = (uint16_t)(34) + (value * (uint16_t)(16650)) / (uint16_t)(1024000);
 
     return (uint8_t) result;
 }
