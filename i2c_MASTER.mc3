@@ -147,7 +147,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\adc\src\adc.c</file>
-         <hash>7bf02a72fed8b62d0ba79087288ffcd631291838e5cd6556c65126ed977844b2</hash>
+         <hash>45927a57f1b1665bedfccfa63cf6705beed0591e0d7c2f8d5a08393fd51b5547</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\i2c_host\i2c_host_event_types.h</file>

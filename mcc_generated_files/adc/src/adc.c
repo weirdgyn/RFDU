@@ -54,8 +54,8 @@ static void ADC_DefaultInterruptHandler(void);
 
 void ADC_Initialize(void)
 {
-    //ADPREF VDD; ADCS FOSC/64; ADFM left; 
-    ADCON1 = 0x60;
+    //ADPREF VDD; ADCS FOSC/64; ADFM right; 
+    ADCON1 = 0xE0;
 
     //ADRESL 0x0; 
     ADRESL = 0x0;
