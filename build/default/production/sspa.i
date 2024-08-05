@@ -116,7 +116,7 @@ typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 149 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdint.h" 2 3
 # 21 "./sspa.h" 2
-# 44 "./sspa.h"
+# 45 "./sspa.h"
     typedef enum {
         MUTE = 1,
         UNMUTE = 0
@@ -16918,14 +16918,17 @@ adc_result_t getADCValue(adc_channel_t channel) {
 
     ADC_StartConversion();
 
+    _delay((unsigned long)((2)*(16000000/4000.0)));
+
     for (uint8_t i = 0; i < 32; )
     {
         if (ADC_IsConversionDone())
         {
             i++;
-
-            sum += 0x1DD;
+            sum += ADC_GetConversionResult();
             ADC_StartConversion();
+
+            _delay((unsigned long)((2)*(16000000/4000.0)));
         }
     }
 

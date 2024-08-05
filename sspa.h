@@ -25,19 +25,20 @@ extern "C" {
 #endif
 
 #define VDD             5 // Volts: valore di tensione di alimentazione 4.3-4.6V
+#define ADC_DELAY       2 // ms
 
     // Temperatura min, max = -40, 70 (gradi Celsius)
-#define TEMP_FACTOR_N   (int32_t)(428)              // Fattore di conversione 88.54°C/V * VDD
+#define TEMP_FACTOR_N   (int32_t)(428)              // Fattore di conversione 85.54°C/V * VDD
 #define TEMP_FACTOR_D   (int32_t)(1024)             // 2^10
 #define TEMP_OFFSET     (int32_t)(160)              // °C offset (159,65)
 
     // Corrente min, max = 0, 10 (Ampere)
-#define CURR_FACTOR_N   (uint16_t)(430)                 // Fattore di conversione 10A/V * VDD * 10
+#define CURR_FACTOR_N   (uint16_t)(500)                 // Fattore di conversione 10A/V * VDD * 10
 #define CURR_FACTOR_D   (uint16_t)(10240)               // 2^10 * 10
 #define CURR_OFFSET     (uint16_t)(0)
 
     // Potenza RF min, max = 36, 47 (dBm)
-#define PWR_FACTOR_N    (uint16_t)(14319)               // Fattore di conversione 3.33dBm/V * VDD * 1000
+#define PWR_FACTOR_N    (uint16_t)(16650)               // Fattore di conversione 3.33dBm/V * VDD * 1000
 #define PWR_FACTOR_D    (uint16_t)(1024000)             // 2^10 * 1000
 #define PWR_OFFSET      (uint16_t)(34)   
 
