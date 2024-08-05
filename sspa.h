@@ -28,7 +28,7 @@ extern "C" {
 
     // Temperatura min, max = -40, 70 (gradi Celsius)
 #define TEMP_FACTOR_N   (int32_t)(428)              // Fattore di conversione 88.54°C/V * VDD
-#define TEMP_FACTOR_D   (int32_t)(4096)             // 2^12
+#define TEMP_FACTOR_D   (int32_t)(1024)             // 2^10
 #define TEMP_OFFSET     (int32_t)(160)              // °C offset (159,65)
 
     // Corrente min, max = 0, 10 (Ampere)

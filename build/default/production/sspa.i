@@ -16918,17 +16918,14 @@ adc_result_t getADCValue(adc_channel_t channel) {
 
     ADC_StartConversion();
 
-    _delay((unsigned long)((2)*(16000000/4000.0)));
-
     for (uint8_t i = 0; i < 32; )
     {
         if (ADC_IsConversionDone())
         {
             i++;
-            sum += ADC_GetConversionResult();
 
+            sum += 0x1DD;
             ADC_StartConversion();
-            _delay((unsigned long)((2)*(16000000/4000.0)));
         }
     }
 
@@ -16937,7 +16934,7 @@ adc_result_t getADCValue(adc_channel_t channel) {
 
 int16_t ADC2Celsius(adc_result_t v) {
     int32_t value = (int32_t) v;
-    int32_t result = (int32_t)(160) - (value * (int32_t)(428)) / (int32_t)(4096);
+    int32_t result = (int32_t)(160) - (value * (int32_t)(428)) / (int32_t)(1024);
 
     return (int16_t) result;
 }

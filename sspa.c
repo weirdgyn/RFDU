@@ -42,17 +42,14 @@ adc_result_t getADCValue(adc_channel_t channel) {
 
     ADC_StartConversion();
 
-    __delay_ms(2);
-
     for (uint8_t i = 0; i < 32; )
     {
         if (ADC_IsConversionDone())
         {
             i++;
-            sum += ADC_GetConversionResult(); 
-            
+            //sum += ADC_GetConversionResult(); 
+            sum += 0x1DD;
             ADC_StartConversion();
-            __delay_ms(2);
         }
     }
     
