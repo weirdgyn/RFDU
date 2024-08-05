@@ -50,9 +50,10 @@ void KAPS_setAbsPos(uint32_t pos) {
  */
 void KAPS_setRelPos(int8_t offset) {
     uint8_t reg = KAPS_REL_POS_REG;
+    uint8_t value = (uint8_t)offset;
 
     I2C1_Write(kaps.m_bAddr, &reg, 1);
-    I2C1_Write(kaps.m_bAddr, (uint8_t*)&offset, 1);
+    I2C1_Write(kaps.m_bAddr, &value, 1);
     //TODO attende KAPS.m_Status == KAPS_MOVING ?
 }
 
@@ -65,13 +66,13 @@ void KAPS_StorePos(uint8_t idx, uint32_t pos) {
     idx--; // indici a base 0
 
     uint8_t reg = (idx)*4 + KAPS_POS1_REG;
-    uint8_t data[5]; //TODO endianism?
+    uint8_t data[4]; //TODO endianism?
 
     data[0] = idx;
-    unpackLong(pos, &data[1]);
+    unpackLong(pos, &data[0]);
 
     I2C1_Write(kaps.m_bAddr, &reg, 1);
-    I2C1_Write(kaps.m_bAddr, data, 5);
+    I2C1_Write(kaps.m_bAddr, data, 4);
 }
 
 /**

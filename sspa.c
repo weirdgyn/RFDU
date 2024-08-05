@@ -42,9 +42,14 @@ adc_result_t getADCValue(adc_channel_t channel) {
 
     for (uint8_t i = 0; i < 32; i++)
         if (ADC_IsConversionDone())
-            sum += ADC_GetConversionResult();
+            sum += ADC_GetConversionResult(); 
+    
+    
+    adc_result_t aux;
+    
+    aux = sum >> 5;
 
-    return sum >> 5; // Divide per 32 tramite shift
+    return aux; // Divide per 32 tramite shift
 }
 
 int16_t ADC2Celsius(adc_result_t v) {
@@ -108,7 +113,6 @@ void SSPA_getTemp(antenna_band_t band) {
     switch (band) {
         case ANTENNABAND_KA:
             channel = TM_Ka;
-
             break;
         case ANTENNABAND_X:
             channel = TM_X;

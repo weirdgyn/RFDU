@@ -1369,121 +1369,125 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;kaps.c: 52:     uint8_t reg = 0x02;
 [v _reg `uc ~T0 @X0 1 a ]
 [e = _reg -> -> 2 `i `uc ]
-"54
-[; ;kaps.c: 54:     I2C1_Write(kaps.m_bAddr, &reg, 1);
-[e ( _I2C1_Write (3 , , -> . _kaps 0 `us &U _reg -> -> 1 `i `ui ]
+"53
+[; ;kaps.c: 53:     uint8_t value = (uint8_t)offset;
+[v _value `uc ~T0 @X0 1 a ]
+[e = _value -> _offset `uc ]
 "55
-[; ;kaps.c: 55:     I2C1_Write(kaps.m_bAddr, (uint8_t*)&offset, 1);
-[e ( _I2C1_Write (3 , , -> . _kaps 0 `us -> &U _offset `*uc -> -> 1 `i `ui ]
-"57
-[; ;kaps.c: 57: }
+[; ;kaps.c: 55:     I2C1_Write(kaps.m_bAddr, &reg, 1);
+[e ( _I2C1_Write (3 , , -> . _kaps 0 `us &U _reg -> -> 1 `i `ui ]
+"56
+[; ;kaps.c: 56:     I2C1_Write(kaps.m_bAddr, &value, 1);
+[e ( _I2C1_Write (3 , , -> . _kaps 0 `us &U _value -> -> 1 `i `ui ]
+"58
+[; ;kaps.c: 58: }
 [e :UE 1197 ]
 }
-"64
-[; ;kaps.c: 64: void KAPS_StorePos(uint8_t idx, uint32_t pos) {
+"65
+[; ;kaps.c: 65: void KAPS_StorePos(uint8_t idx, uint32_t pos) {
 [v _KAPS_StorePos `(v ~T0 @X0 1 ef2`uc`ul ]
 {
 [e :U _KAPS_StorePos ]
 [v _idx `uc ~T0 @X0 1 r1 ]
 [v _pos `ul ~T0 @X0 1 r2 ]
 [f ]
-"65
-[; ;kaps.c: 65:     idx--;
+"66
+[; ;kaps.c: 66:     idx--;
 [e -- _idx -> -> 1 `i `uc ]
-"67
-[; ;kaps.c: 67:     uint8_t reg = (idx)*4 + 0x04;
+"68
+[; ;kaps.c: 68:     uint8_t reg = (idx)*4 + 0x04;
 [v _reg `uc ~T0 @X0 1 a ]
 [e = _reg -> + * -> _idx `i -> 4 `i -> 4 `i `uc ]
-"68
-[; ;kaps.c: 68:     uint8_t data[5];
-[v _data `uc ~T0 @X0 -> 5 `i a ]
-"70
-[; ;kaps.c: 70:     data[0] = idx;
-[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux _idx ]
+"69
+[; ;kaps.c: 69:     uint8_t data[4];
+[v _data `uc ~T0 @X0 -> 4 `i a ]
 "71
-[; ;kaps.c: 71:     unpackLong(pos, &data[1]);
-[e ( _unpackLong (2 , _pos &U *U + &U _data * -> -> -> 1 `i `ui `ux -> -> # *U &U _data `ui `ux ]
-"73
-[; ;kaps.c: 73:     I2C1_Write(kaps.m_bAddr, &reg, 1);
-[e ( _I2C1_Write (3 , , -> . _kaps 0 `us &U _reg -> -> 1 `i `ui ]
+[; ;kaps.c: 71:     data[0] = idx;
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux _idx ]
+"72
+[; ;kaps.c: 72:     unpackLong(pos, &data[0]);
+[e ( _unpackLong (2 , _pos &U *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux ]
 "74
-[; ;kaps.c: 74:     I2C1_Write(kaps.m_bAddr, data, 5);
-[e ( _I2C1_Write (3 , , -> . _kaps 0 `us &U _data -> -> 5 `i `ui ]
+[; ;kaps.c: 74:     I2C1_Write(kaps.m_bAddr, &reg, 1);
+[e ( _I2C1_Write (3 , , -> . _kaps 0 `us &U _reg -> -> 1 `i `ui ]
 "75
-[; ;kaps.c: 75: }
+[; ;kaps.c: 75:     I2C1_Write(kaps.m_bAddr, data, 4);
+[e ( _I2C1_Write (3 , , -> . _kaps 0 `us &U _data -> -> 4 `i `ui ]
+"76
+[; ;kaps.c: 76: }
 [e :UE 1198 ]
 }
-"80
-[; ;kaps.c: 80: void KAPS_getStatus() {
+"81
+[; ;kaps.c: 81: void KAPS_getStatus() {
 [v _KAPS_getStatus `(v ~T0 @X0 1 ef ]
 {
 [e :U _KAPS_getStatus ]
 [f ]
-"81
-[; ;kaps.c: 81:     uint8_t reg = 0xFF;
+"82
+[; ;kaps.c: 82:     uint8_t reg = 0xFF;
 [v _reg `uc ~T0 @X0 1 a ]
 [e = _reg -> -> 255 `i `uc ]
-"82
-[; ;kaps.c: 82:     uint8_t data = 0x00;
+"83
+[; ;kaps.c: 83:     uint8_t data = 0x00;
 [v _data `uc ~T0 @X0 1 a ]
 [e = _data -> -> 0 `i `uc ]
-"84
-[; ;kaps.c: 84:     I2C1_Write(kaps.m_bAddr, &reg, 1);
+"85
+[; ;kaps.c: 85:     I2C1_Write(kaps.m_bAddr, &reg, 1);
 [e ( _I2C1_Write (3 , , -> . _kaps 0 `us &U _reg -> -> 1 `i `ui ]
-"86
-[; ;kaps.c: 86:     if (I2C1_Read(kaps.m_bAddr, &data, 1))
-[e $ ! != -> ( _I2C1_Read (3 , , -> . _kaps 0 `us &U _data -> -> 1 `i `ui `i -> 0 `i 1200  ]
 "87
-[; ;kaps.c: 87:         kaps.m_Status = (kaps_status_t) data;
+[; ;kaps.c: 87:     if (I2C1_Read(kaps.m_bAddr, &data, 1))
+[e $ ! != -> ( _I2C1_Read (3 , , -> . _kaps 0 `us &U _data -> -> 1 `i `ui `i -> 0 `i 1200  ]
+"88
+[; ;kaps.c: 88:         kaps.m_Status = (kaps_status_t) data;
 [e = . _kaps 1 -> _data `E36 ]
 [e :U 1200 ]
-"88
-[; ;kaps.c: 88: }
+"89
+[; ;kaps.c: 89: }
 [e :UE 1199 ]
 }
-"93
-[; ;kaps.c: 93: void KAPS_getIndex() {
+"94
+[; ;kaps.c: 94: void KAPS_getIndex() {
 [v _KAPS_getIndex `(v ~T0 @X0 1 ef ]
 {
 [e :U _KAPS_getIndex ]
 [f ]
-"94
-[; ;kaps.c: 94:     uint8_t reg = 0xFE;
+"95
+[; ;kaps.c: 95:     uint8_t reg = 0xFE;
 [v _reg `uc ~T0 @X0 1 a ]
 [e = _reg -> -> 254 `i `uc ]
-"95
-[; ;kaps.c: 95:     uint8_t data = 0x00;
+"96
+[; ;kaps.c: 96:     uint8_t data = 0x00;
 [v _data `uc ~T0 @X0 1 a ]
 [e = _data -> -> 0 `i `uc ]
-"97
-[; ;kaps.c: 97:     I2C1_Write(kaps.m_bAddr, &reg, 1);
+"98
+[; ;kaps.c: 98:     I2C1_Write(kaps.m_bAddr, &reg, 1);
 [e ( _I2C1_Write (3 , , -> . _kaps 0 `us &U _reg -> -> 1 `i `ui ]
-"99
-[; ;kaps.c: 99:     if (I2C1_Read(kaps.m_bAddr, &data, 1))
-[e $ ! != -> ( _I2C1_Read (3 , , -> . _kaps 0 `us &U _data -> -> 1 `i `ui `i -> 0 `i 1202  ]
 "100
-[; ;kaps.c: 100:         kaps.m_bIdxPos = data;
+[; ;kaps.c: 100:     if (I2C1_Read(kaps.m_bAddr, &data, 1))
+[e $ ! != -> ( _I2C1_Read (3 , , -> . _kaps 0 `us &U _data -> -> 1 `i `ui `i -> 0 `i 1202  ]
+"101
+[; ;kaps.c: 101:         kaps.m_bIdxPos = data;
 [e = . _kaps 3 _data ]
 [e :U 1202 ]
-"101
-[; ;kaps.c: 101: }
+"102
+[; ;kaps.c: 102: }
 [e :UE 1201 ]
 }
-"106
-[; ;kaps.c: 106: void KAPS_getPos() {
+"107
+[; ;kaps.c: 107: void KAPS_getPos() {
 [v _KAPS_getPos `(v ~T0 @X0 1 ef ]
 {
 [e :U _KAPS_getPos ]
 [f ]
-"107
-[; ;kaps.c: 107:     uint8_t reg = 0x00;
+"108
+[; ;kaps.c: 108:     uint8_t reg = 0x00;
 [v _reg `uc ~T0 @X0 1 a ]
 [e = _reg -> -> 0 `i `uc ]
-[v F9701 `uc ~T0 @X0 -> 4 `i s ]
-[i F9701
+[v F9702 `uc ~T0 @X0 -> 4 `i s ]
+[i F9702
 :U ..
-"108
-[; ;kaps.c: 108:     uint8_t data[4] = {0x00, 0x00, 0x00, 0x00};
+"109
+[; ;kaps.c: 109:     uint8_t data[4] = {0x00, 0x00, 0x00, 0x00};
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -1491,18 +1495,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _data `uc ~T0 @X0 -> 4 `i a ]
-[e = _data F9701 ]
-"110
-[; ;kaps.c: 110:     I2C1_Write(kaps.m_bAddr, &reg, 1);
+[e = _data F9702 ]
+"111
+[; ;kaps.c: 111:     I2C1_Write(kaps.m_bAddr, &reg, 1);
 [e ( _I2C1_Write (3 , , -> . _kaps 0 `us &U _reg -> -> 1 `i `ui ]
-"112
-[; ;kaps.c: 112:     if (I2C1_Read(kaps.m_bAddr, data, 4))
-[e $ ! != -> ( _I2C1_Read (3 , , -> . _kaps 0 `us &U _data -> -> 4 `i `ui `i -> 0 `i 1204  ]
 "113
-[; ;kaps.c: 113:         kaps.m_lAbsPos = packLong(data);
+[; ;kaps.c: 113:     if (I2C1_Read(kaps.m_bAddr, data, 4))
+[e $ ! != -> ( _I2C1_Read (3 , , -> . _kaps 0 `us &U _data -> -> 4 `i `ui `i -> 0 `i 1204  ]
+"114
+[; ;kaps.c: 114:         kaps.m_lAbsPos = packLong(data);
 [e = . _kaps 2 ( _packLong (1 &U _data ]
 [e :U 1204 ]
-"114
-[; ;kaps.c: 114: }
+"115
+[; ;kaps.c: 115: }
 [e :UE 1203 ]
 }

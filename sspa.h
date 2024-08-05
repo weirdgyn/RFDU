@@ -24,7 +24,7 @@
 extern "C" {
 #endif
 
-#define VDD             4.3 // Volts: valore di tensione di alimentazione 4.3-4.6V
+#define VDD             5 // Volts: valore di tensione di alimentazione 4.3-4.6V
 
     // Temperatura min, max = -40, 70 (gradi Celsius)
 #define TEMP_FACTOR_N   (int16_t)(367822)               // Fattore di conversione 88.54°C/V * VDD * 1000

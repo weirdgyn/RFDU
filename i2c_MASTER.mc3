@@ -1,4 +1,4 @@
-<config configName="default" projectName="i2c_MASTER" configVersion="1.1" device="PIC16LF1618" deviceLibraryClass="com.microchip.mcc.melody.Library" coreVersion="5.7.1">
+<config configName="default" projectName="i2c_MASTER" configVersion="1.1" device="PIC16F1618" deviceLibraryClass="com.microchip.mcc.melody.Library" coreVersion="5.7.1">
    <usedPackages class="java.util.ArrayList">
       <package packageName="@mchp-mcc/i2c-host-driver" version="1.0.4" contentType="MELODY">
          <modules class="java.util.ArrayList"/>
@@ -129,7 +129,7 @@
    <tokenMap class="java.util.TreeMap">
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Application Builder" name="graph-location-data"/>
-         <value>{&quot;systemGroup&quot;:{&quot;loc&quot;:&quot;388.8767425033838 -595.2115537398475&quot;,&quot;pos&quot;:&quot;388.8767425033838 -595.2115537398475&quot;},&quot;mccDevice&quot;:{&quot;loc&quot;:&quot;0 0&quot;,&quot;pos&quot;:&quot;0 0&quot;},&quot;module54&quot;:{&quot;loc&quot;:&quot;568.1415566773101 -28.472499999999968&quot;,&quot;pos&quot;:&quot;568.1415566773101 -28.472499999999968&quot;},&quot;module63&quot;:{&quot;loc&quot;:&quot;430.23862250543505 178.12306499796205&quot;,&quot;pos&quot;:&quot;430.23862250543505 178.12306499796205&quot;},&quot;module12&quot;:{&quot;loc&quot;:&quot;247.74155667731003 180.17274306249988&quot;,&quot;pos&quot;:&quot;247.74155667731003 180.17274306249988&quot;},&quot;module34&quot;:{&quot;loc&quot;:&quot;412.9949999999997 -79.46750000000003&quot;,&quot;pos&quot;:&quot;412.9949999999997 -79.46750000000003&quot;},&quot;module23&quot;:{&quot;loc&quot;:&quot;192.5 -82.48984375&quot;,&quot;pos&quot;:&quot;192.5 -82.48984375&quot;}}</value>
+         <value>{&quot;mccDevice&quot;:{&quot;loc&quot;:&quot;0 0&quot;,&quot;pos&quot;:&quot;0 0&quot;},&quot;systemGroup&quot;:{&quot;loc&quot;:&quot;388.8767425033838 -595.2115537398475&quot;,&quot;pos&quot;:&quot;388.8767425033838 -595.2115537398475&quot;},&quot;module54&quot;:{&quot;loc&quot;:&quot;411.49143167731006 56.696500000000015&quot;,&quot;pos&quot;:&quot;411.49143167731006 56.696500000000015&quot;},&quot;module63&quot;:{&quot;loc&quot;:&quot;430.23862250543505 178.12306499796205&quot;,&quot;pos&quot;:&quot;430.23862250543505 178.12306499796205&quot;},&quot;module12&quot;:{&quot;loc&quot;:&quot;247.74155667731003 180.17274306249988&quot;,&quot;pos&quot;:&quot;247.74155667731003 180.17274306249988&quot;},&quot;module34&quot;:{&quot;loc&quot;:&quot;412.9949999999997 -79.46750000000003&quot;,&quot;pos&quot;:&quot;412.9949999999997 -79.46750000000003&quot;},&quot;module23&quot;:{&quot;loc&quot;:&quot;192.5 -82.48984375&quot;,&quot;pos&quot;:&quot;192.5 -82.48984375&quot;}}</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Application Builder" name="state"/>

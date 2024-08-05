@@ -17120,15 +17120,16 @@ int main(void) {
 
 
 
+    uint8_t data = 0x00;
 
     for (;;) {
-        uint8_t data = 0x00;
-
         if (EUSART_IsRxReady()) {
             data = EUSART_Read();
 
             if (Parse(data))
                 ProcessMsg(parser.m_MsgID, parserDataBuffer);
         }
+        else
+            __nop();
     }
 }

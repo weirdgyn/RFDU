@@ -23,8 +23,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121
 [; ;./mcc_generated_files/adc/adc.h: 121: adc_result_t ADC_GetConversionResult(void);
 [v _ADC_GetConversionResult `(us ~T0 @X0 0 ef ]
-"76 sspa.c
-[; ;sspa.c: 76: void SSPA_setMute(antenna_band_t band, mute_t mute) {
+"81 sspa.c
+[; ;sspa.c: 81: void SSPA_setMute(antenna_band_t band, mute_t mute) {
 [c E40 0 1 2 .. ]
 [n E40 . ANTENNABAND_KU ANTENNABAND_KA ANTENNABAND_X  ]
 "2687 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC12-16F1xxx_DFP/1.7.242/xc8\pic\include\proc\pic16f1618.h
@@ -1377,162 +1377,168 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ < -> _i `i -> 32 `i 1192  ]
 [e :U 1193 ]
 }
-"47
-[; ;sspa.c: 47:     return sum >> 5;
-[e ) -> >> -> _sum `ui -> 5 `i `us ]
-[e $UE 1191  ]
 "48
-[; ;sspa.c: 48: }
+[; ;sspa.c: 48:     adc_result_t aux;
+[v _aux `us ~T0 @X0 1 a ]
+"50
+[; ;sspa.c: 50:     aux = sum >> 5;
+[e = _aux -> >> -> _sum `ui -> 5 `i `us ]
+"52
+[; ;sspa.c: 52:     return aux;
+[e ) _aux ]
+[e $UE 1191  ]
+"53
+[; ;sspa.c: 53: }
 [e :UE 1191 ]
 }
-"50
-[; ;sspa.c: 50: int16_t ADC2Celsius(adc_result_t v) {
+"55
+[; ;sspa.c: 55: int16_t ADC2Celsius(adc_result_t v) {
 [v _ADC2Celsius `(s ~T0 @X0 1 ef1`us ]
 {
 [e :U _ADC2Celsius ]
 [v _v `us ~T0 @X0 1 r1 ]
 [f ]
-"51
-[; ;sspa.c: 51:     int32_t value = (int32_t) v;
+"56
+[; ;sspa.c: 56:     int32_t value = (int32_t) v;
 [v _value `l ~T0 @X0 1 a ]
 [e = _value -> _v `l ]
-"52
-[; ;sspa.c: 52:     int32_t result = (int16_t)(160) - (value * (int16_t)(367822)) / (int16_t)(1024000);
+"57
+[; ;sspa.c: 57:     int32_t result = (int16_t)(160) - (value * (int16_t)(367822)) / (int16_t)(1024000);
 [v _result `l ~T0 @X0 1 a ]
 [e = _result - -> -> -> 160 `i `s `l / * _value -> -> -> 367822 `l `s `l -> -> -> 1024000 `l `s `l ]
-"54
-[; ;sspa.c: 54:     return (int16_t) result;
+"59
+[; ;sspa.c: 59:     return (int16_t) result;
 [e ) -> _result `s ]
 [e $UE 1196  ]
-"55
-[; ;sspa.c: 55: }
+"60
+[; ;sspa.c: 60: }
 [e :UE 1196 ]
 }
-"57
-[; ;sspa.c: 57: uint32_t ADC2Amp(adc_result_t v) {
+"62
+[; ;sspa.c: 62: uint32_t ADC2Amp(adc_result_t v) {
 [v _ADC2Amp `(ul ~T0 @X0 1 ef1`us ]
 {
 [e :U _ADC2Amp ]
 [v _v `us ~T0 @X0 1 r1 ]
 [f ]
-"58
-[; ;sspa.c: 58:     int32_t value = (int32_t) v;
+"63
+[; ;sspa.c: 63:     int32_t value = (int32_t) v;
 [v _value `l ~T0 @X0 1 a ]
 [e = _value -> _v `l ]
-"59
-[; ;sspa.c: 59:     int32_t result = (uint16_t)(0) + (value * (uint16_t)(430)) / (uint16_t)(10240);
+"64
+[; ;sspa.c: 64:     int32_t result = (uint16_t)(0) + (value * (uint16_t)(430)) / (uint16_t)(10240);
 [v _result `l ~T0 @X0 1 a ]
 [e = _result + -> -> -> 0 `i `us `l / * _value -> -> -> 430 `i `us `l -> -> -> 10240 `i `us `l ]
-"61
-[; ;sspa.c: 61:     return (uint32_t) result;
+"66
+[; ;sspa.c: 66:     return (uint32_t) result;
 [e ) -> _result `ul ]
 [e $UE 1197  ]
-"62
-[; ;sspa.c: 62: }
+"67
+[; ;sspa.c: 67: }
 [e :UE 1197 ]
 }
-"64
-[; ;sspa.c: 64: uint8_t ADC2dBm(adc_result_t v) {
+"69
+[; ;sspa.c: 69: uint8_t ADC2dBm(adc_result_t v) {
 [v _ADC2dBm `(uc ~T0 @X0 1 ef1`us ]
 {
 [e :U _ADC2dBm ]
 [v _v `us ~T0 @X0 1 r1 ]
 [f ]
-"65
-[; ;sspa.c: 65:     int32_t value = (int32_t) v;
+"70
+[; ;sspa.c: 70:     int32_t value = (int32_t) v;
 [v _value `l ~T0 @X0 1 a ]
 [e = _value -> _v `l ]
-"66
-[; ;sspa.c: 66:     int32_t result = (uint16_t)(34) + (value * (uint16_t)(14319)) / (uint16_t)(1024000);
+"71
+[; ;sspa.c: 71:     int32_t result = (uint16_t)(34) + (value * (uint16_t)(14319)) / (uint16_t)(1024000);
 [v _result `l ~T0 @X0 1 a ]
 [e = _result + -> -> -> 34 `i `us `l / * _value -> -> -> 14319 `i `us `l -> -> -> 1024000 `l `us `l ]
-"68
-[; ;sspa.c: 68:     return (uint8_t) result;
+"73
+[; ;sspa.c: 73:     return (uint8_t) result;
 [e ) -> _result `uc ]
 [e $UE 1198  ]
-"69
-[; ;sspa.c: 69: }
+"74
+[; ;sspa.c: 74: }
 [e :UE 1198 ]
 }
-"76
-[; ;sspa.c: 76: void SSPA_setMute(antenna_band_t band, mute_t mute) {
+"81
+[; ;sspa.c: 81: void SSPA_setMute(antenna_band_t band, mute_t mute) {
 [v _SSPA_setMute `(v ~T0 @X0 1 ef2`E40`E36 ]
 {
 [e :U _SSPA_setMute ]
 [v _band `E40 ~T0 @X0 1 r1 ]
 [v _mute `E36 ~T0 @X0 1 r2 ]
 [f ]
-"77
-[; ;sspa.c: 77:     switch (band) {
+"82
+[; ;sspa.c: 82:     switch (band) {
 [e $U 1201  ]
 {
-"78
-[; ;sspa.c: 78:         case ANTENNABAND_KA:
+"83
+[; ;sspa.c: 83:         case ANTENNABAND_KA:
 [e :U 1202 ]
-"79
-[; ;sspa.c: 79:             if (mute == UNMUTE)
+"84
+[; ;sspa.c: 84:             if (mute == UNMUTE)
 [e $ ! == -> _mute `ui -> . `E36 1 `ui 1203  ]
-"80
-[; ;sspa.c: 80:                 do { LATCbits.LATC7 = 1; } while(0);
+"85
+[; ;sspa.c: 85:                 do { LATCbits.LATC7 = 1; } while(0);
 [e :U 1206 ]
 {
 [e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
 }
 [e :U 1205 ]
 [e $U 1207  ]
-"81
-[; ;sspa.c: 81:             else
+"86
+[; ;sspa.c: 86:             else
 [e :U 1203 ]
-"82
-[; ;sspa.c: 82:                 do { LATCbits.LATC7 = 0; } while(0);
+"87
+[; ;sspa.c: 87:                 do { LATCbits.LATC7 = 0; } while(0);
 [e :U 1210 ]
 {
 [e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
 }
 [e :U 1209 ]
 [e :U 1207 ]
-"83
-[; ;sspa.c: 83:             break;
+"88
+[; ;sspa.c: 88:             break;
 [e $U 1200  ]
-"85
-[; ;sspa.c: 85:         case ANTENNABAND_X:
+"90
+[; ;sspa.c: 90:         case ANTENNABAND_X:
 [e :U 1211 ]
-"86
-[; ;sspa.c: 86:             if (mute == UNMUTE)
+"91
+[; ;sspa.c: 91:             if (mute == UNMUTE)
 [e $ ! == -> _mute `ui -> . `E36 1 `ui 1212  ]
-"87
-[; ;sspa.c: 87:                 do { LATCbits.LATC6 = 1; } while(0);
+"92
+[; ;sspa.c: 92:                 do { LATCbits.LATC6 = 1; } while(0);
 [e :U 1215 ]
 {
 [e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
 }
 [e :U 1214 ]
 [e $U 1216  ]
-"88
-[; ;sspa.c: 88:             else
+"93
+[; ;sspa.c: 93:             else
 [e :U 1212 ]
-"89
-[; ;sspa.c: 89:                 do { LATCbits.LATC6 = 0; } while(0);
+"94
+[; ;sspa.c: 94:                 do { LATCbits.LATC6 = 0; } while(0);
 [e :U 1219 ]
 {
 [e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
 }
 [e :U 1218 ]
 [e :U 1216 ]
-"90
-[; ;sspa.c: 90:             break;
-[e $U 1200  ]
-"92
-[; ;sspa.c: 92:         case ANTENNABAND_KU:
-[e :U 1220 ]
-"93
-[; ;sspa.c: 93:         default:
-[e :U 1221 ]
-"94
-[; ;sspa.c: 94:             break;
-[e $U 1200  ]
 "95
-[; ;sspa.c: 95:     }
+[; ;sspa.c: 95:             break;
+[e $U 1200  ]
+"97
+[; ;sspa.c: 97:         case ANTENNABAND_KU:
+[e :U 1220 ]
+"98
+[; ;sspa.c: 98:         default:
+[e :U 1221 ]
+"99
+[; ;sspa.c: 99:             break;
+[e $U 1200  ]
+"100
+[; ;sspa.c: 100:     }
 }
 [e $U 1200  ]
 [e :U 1201 ]
@@ -1541,59 +1547,59 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E40 0 `ui 1220
  1221 ]
 [e :U 1200 ]
-"97
-[; ;sspa.c: 97:     sspas[band].m_Mute = mute;
+"102
+[; ;sspa.c: 102:     sspas[band].m_Mute = mute;
 [e = . *U + &U _sspas * -> _band `ux -> -> # *U &U _sspas `ui `ux 0 _mute ]
-"98
-[; ;sspa.c: 98: }
+"103
+[; ;sspa.c: 103: }
 [e :UE 1199 ]
 }
-"104
-[; ;sspa.c: 104: void SSPA_getTemp(antenna_band_t band) {
+"109
+[; ;sspa.c: 109: void SSPA_getTemp(antenna_band_t band) {
 [v _SSPA_getTemp `(v ~T0 @X0 1 ef1`E40 ]
 {
 [e :U _SSPA_getTemp ]
 [v _band `E40 ~T0 @X0 1 r1 ]
 [f ]
-"105
-[; ;sspa.c: 105:     adc_channel_t channel;
+"110
+[; ;sspa.c: 110:     adc_channel_t channel;
 [v _channel `E9257 ~T0 @X0 1 a ]
-"106
-[; ;sspa.c: 106:     adc_result_t adc_value;
+"111
+[; ;sspa.c: 111:     adc_result_t adc_value;
 [v _adc_value `us ~T0 @X0 1 a ]
-"108
-[; ;sspa.c: 108:     switch (band) {
+"113
+[; ;sspa.c: 113:     switch (band) {
 [e $U 1224  ]
 {
-"109
-[; ;sspa.c: 109:         case ANTENNABAND_KA:
-[e :U 1225 ]
-"110
-[; ;sspa.c: 110:             channel = TM_Ka;
-[e = _channel . `E9257 5 ]
-"112
-[; ;sspa.c: 112:             break;
-[e $U 1223  ]
-"113
-[; ;sspa.c: 113:         case ANTENNABAND_X:
-[e :U 1226 ]
 "114
-[; ;sspa.c: 114:             channel = TM_X;
-[e = _channel . `E9257 7 ]
+[; ;sspa.c: 114:         case ANTENNABAND_KA:
+[e :U 1225 ]
 "115
-[; ;sspa.c: 115:             break;
+[; ;sspa.c: 115:             channel = TM_Ka;
+[e = _channel . `E9257 5 ]
+"116
+[; ;sspa.c: 116:             break;
 [e $U 1223  ]
 "117
-[; ;sspa.c: 117:         case ANTENNABAND_KU:
-[e :U 1227 ]
+[; ;sspa.c: 117:         case ANTENNABAND_X:
+[e :U 1226 ]
 "118
-[; ;sspa.c: 118:         default:
-[e :U 1228 ]
+[; ;sspa.c: 118:             channel = TM_X;
+[e = _channel . `E9257 7 ]
 "119
 [; ;sspa.c: 119:             break;
 [e $U 1223  ]
-"120
-[; ;sspa.c: 120:     }
+"121
+[; ;sspa.c: 121:         case ANTENNABAND_KU:
+[e :U 1227 ]
+"122
+[; ;sspa.c: 122:         default:
+[e :U 1228 ]
+"123
+[; ;sspa.c: 123:             break;
+[e $U 1223  ]
+"124
+[; ;sspa.c: 124:     }
 }
 [e $U 1223  ]
 [e :U 1224 ]
@@ -1602,86 +1608,86 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E40 0 `ui 1227
  1228 ]
 [e :U 1223 ]
-"122
-[; ;sspa.c: 122:     adc_value = getADCValue(channel);
+"126
+[; ;sspa.c: 126:     adc_value = getADCValue(channel);
 [e = _adc_value ( _getADCValue (1 _channel ]
-"124
-[; ;sspa.c: 124:     sspas[band].m_wTemp = ADC2Celsius(adc_value);
+"128
+[; ;sspa.c: 128:     sspas[band].m_wTemp = ADC2Celsius(adc_value);
 [e = . *U + &U _sspas * -> _band `ux -> -> # *U &U _sspas `ui `ux 1 ( _ADC2Celsius (1 _adc_value ]
-"125
-[; ;sspa.c: 125: }
+"129
+[; ;sspa.c: 129: }
 [e :UE 1222 ]
 }
-"131
-[; ;sspa.c: 131: void SSPA_getPOut(antenna_band_t band) {
+"135
+[; ;sspa.c: 135: void SSPA_getPOut(antenna_band_t band) {
 [v _SSPA_getPOut `(v ~T0 @X0 1 ef1`E40 ]
 {
 [e :U _SSPA_getPOut ]
 [v _band `E40 ~T0 @X0 1 r1 ]
 [f ]
-"132
-[; ;sspa.c: 132:     adc_channel_t channel;
+"136
+[; ;sspa.c: 136:     adc_channel_t channel;
 [v _channel `E9257 ~T0 @X0 1 a ]
-"133
-[; ;sspa.c: 133:     adc_result_t adc_value;
+"137
+[; ;sspa.c: 137:     adc_result_t adc_value;
 [v _adc_value `us ~T0 @X0 1 a ]
-"135
-[; ;sspa.c: 135:     switch (band) {
+"139
+[; ;sspa.c: 139:     switch (band) {
 [e $U 1231  ]
 {
-"136
-[; ;sspa.c: 136:         case ANTENNABAND_KA:
-[e :U 1232 ]
-"137
-[; ;sspa.c: 137:             channel = CS_Ka;
-[e = _channel . `E9257 4 ]
-"138
-[; ;sspa.c: 138:             adc_value = getADCValue(channel);
-[e = _adc_value ( _getADCValue (1 _channel ]
-"139
-[; ;sspa.c: 139:             sspas[band].m_lCurrent = ADC2Amp(adc_value);
-[e = . *U + &U _sspas * -> _band `ux -> -> # *U &U _sspas `ui `ux 3 ( _ADC2Amp (1 _adc_value ]
 "140
-[; ;sspa.c: 140:             sspas[band].m_bPOut = 0xFF;
-[e = . *U + &U _sspas * -> _band `ux -> -> # *U &U _sspas `ui `ux 2 -> -> 255 `i `uc ]
+[; ;sspa.c: 140:         case ANTENNABAND_KA:
+[e :U 1232 ]
 "141
-[; ;sspa.c: 141:             break;
-[e $U 1230  ]
+[; ;sspa.c: 141:             channel = CS_Ka;
+[e = _channel . `E9257 4 ]
+"142
+[; ;sspa.c: 142:             adc_value = getADCValue(channel);
+[e = _adc_value ( _getADCValue (1 _channel ]
 "143
-[; ;sspa.c: 143:         case ANTENNABAND_X:
-[e :U 1233 ]
-"144
-[; ;sspa.c: 144:             channel = CS_X;
-[e = _channel . `E9257 6 ]
-"145
-[; ;sspa.c: 145:             adc_value = getADCValue(channel);
-[e = _adc_value ( _getADCValue (1 _channel ]
-"146
-[; ;sspa.c: 146:             sspas[band].m_lCurrent = ADC2Amp(adc_value);
+[; ;sspa.c: 143:             sspas[band].m_lCurrent = ADC2Amp(adc_value);
 [e = . *U + &U _sspas * -> _band `ux -> -> # *U &U _sspas `ui `ux 3 ( _ADC2Amp (1 _adc_value ]
-"147
-[; ;sspa.c: 147:             channel = PD_X;
-[e = _channel . `E9257 3 ]
-"148
-[; ;sspa.c: 148:             adc_value = getADCValue(channel);
-[e = _adc_value ( _getADCValue (1 _channel ]
-"149
-[; ;sspa.c: 149:             sspas[band].m_bPOut = (uint8_t) ADC2dBm(adc_value);
-[e = . *U + &U _sspas * -> _band `ux -> -> # *U &U _sspas `ui `ux 2 ( _ADC2dBm (1 _adc_value ]
-"150
-[; ;sspa.c: 150:             break;
+"144
+[; ;sspa.c: 144:             sspas[band].m_bPOut = 0xFF;
+[e = . *U + &U _sspas * -> _band `ux -> -> # *U &U _sspas `ui `ux 2 -> -> 255 `i `uc ]
+"145
+[; ;sspa.c: 145:             break;
 [e $U 1230  ]
+"147
+[; ;sspa.c: 147:         case ANTENNABAND_X:
+[e :U 1233 ]
+"148
+[; ;sspa.c: 148:             channel = CS_X;
+[e = _channel . `E9257 6 ]
+"149
+[; ;sspa.c: 149:             adc_value = getADCValue(channel);
+[e = _adc_value ( _getADCValue (1 _channel ]
+"150
+[; ;sspa.c: 150:             sspas[band].m_lCurrent = ADC2Amp(adc_value);
+[e = . *U + &U _sspas * -> _band `ux -> -> # *U &U _sspas `ui `ux 3 ( _ADC2Amp (1 _adc_value ]
+"151
+[; ;sspa.c: 151:             channel = PD_X;
+[e = _channel . `E9257 3 ]
 "152
-[; ;sspa.c: 152:         case ANTENNABAND_KU:
-[e :U 1234 ]
+[; ;sspa.c: 152:             adc_value = getADCValue(channel);
+[e = _adc_value ( _getADCValue (1 _channel ]
 "153
-[; ;sspa.c: 153:         default:
-[e :U 1235 ]
+[; ;sspa.c: 153:             sspas[band].m_bPOut = (uint8_t) ADC2dBm(adc_value);
+[e = . *U + &U _sspas * -> _band `ux -> -> # *U &U _sspas `ui `ux 2 ( _ADC2dBm (1 _adc_value ]
 "154
 [; ;sspa.c: 154:             break;
 [e $U 1230  ]
-"155
-[; ;sspa.c: 155:     }
+"156
+[; ;sspa.c: 156:         case ANTENNABAND_KU:
+[e :U 1234 ]
+"157
+[; ;sspa.c: 157:         default:
+[e :U 1235 ]
+"158
+[; ;sspa.c: 158:             break;
+[e $U 1230  ]
+"159
+[; ;sspa.c: 159:     }
 }
 [e $U 1230  ]
 [e :U 1231 ]
@@ -1690,7 +1696,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E40 0 `ui 1234
  1235 ]
 [e :U 1230 ]
-"156
-[; ;sspa.c: 156: }
+"160
+[; ;sspa.c: 160: }
 [e :UE 1229 ]
 }

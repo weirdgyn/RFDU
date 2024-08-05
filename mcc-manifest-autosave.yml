@@ -2,11 +2,11 @@
 
 manifest_file_version: 1.0.0
 project: i2c_MASTER
-creation_date: 2024-07-10T14:31:30.234+02:00[Europe/Berlin]
+creation_date: 2024-08-05T10:15:34.927+02:00[Europe/Berlin]
 operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.20
-device_name: PIC16LF1618
+device_name: PIC16F1618
 compiler: XC8 2.46
 mcc_version: 5.5.1
 mcc_core_version: 5.7.1

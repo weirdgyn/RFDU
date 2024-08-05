@@ -23,7 +23,7 @@ Parser parser = {WAIT_SOM, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, false};
 void SendSync(uint8_t data)
 {
     while(!EUSART_IsTxReady())
-        __delay_ms(1);
+        NOP();
     EUSART_Write(data);    
 }
 
@@ -41,7 +41,10 @@ void SendMsg(uint8_t msg_id, uint8_t* data, uint8_t data_len) {
     SendSync(msg_id);
 
     if (msg_id == RFDU_NVT_NACK)
+    {
+        SendSync(*data);
         return;
+    }
     
     for (; data_len > 0; data_len--) {
         SendSync(*data);
@@ -83,6 +86,8 @@ bool Parse(uint8_t data) {
             parser.m_MsgID = data;
             parser.m_bEcho = true;
 
+            parser.m_State = WAIT_VALUE;
+
             switch ((uint8_t) parser.m_MsgID) {
                 case NVT_RFDU_KapsStatus:
                 case NVT_RFDU_ReadAbsPos:
@@ -93,39 +98,33 @@ bool Parse(uint8_t data) {
                     parser.m_State = WAIT_CKSUM;
                     break;
 
-                case NVT_RFDU_GoToPos:
-                    parser.m_bReplySize = 1;
-                    parser.m_bDataSize = 1;
-                    parser.m_State = WAIT_VALUE;
-                    break;
-
                 case NVT_RFDU_GetMute:
                 case NVT_RFDU_SSPATemp:
                 case NVT_RFDU_SSPAPout:
                 case NVT_RFDU_TuneSetRP:
                     parser.m_bEcho = false;
+                case NVT_RFDU_GoToPos:
                     parser.m_bReplySize = 1;
                     parser.m_bDataSize = 1;
-                    parser.m_State = WAIT_VALUE;
                     break;
 
                 case NVT_RFDU_SetMute:
                     parser.m_bReplySize = 2;
                     parser.m_bDataSize = 2;
-                    parser.m_State = WAIT_VALUE;
                     break;
 
                 case NVT_RFDU_TuneSetAP:
                     parser.m_bReplySize = 4;
                     parser.m_bDataSize = 4;
-                    parser.m_State = WAIT_VALUE;
                     break;
 
                 case NVT_RFDU_TuneSetPos:
                     parser.m_bReplySize = 5;
                     parser.m_bDataSize = 5;
-                    parser.m_State = WAIT_VALUE;
                     break;
+                    
+                default:
+                    parser.m_State = WAIT_SOM;
             }
             break;
 
@@ -159,6 +158,12 @@ bool Parse(uint8_t data) {
     return false;
 }
 
+/**
+ * @brief Invia la stringa buffer tramite seriale.
+ * N.B. è possibile inviare stringhe statiche.
+ * @param buffer string da inviare
+ * @param len  lunghezza stringa
+ */
 void EUSART_sendMsg(const char* buffer, int len)
 {
     for(int i=0; i<len;)
@@ -173,5 +178,7 @@ void EUSART_sendMsg(const char* buffer, int len)
             buffer++;
             i++;
         }
+        else
+            NOP();
     }
 }
