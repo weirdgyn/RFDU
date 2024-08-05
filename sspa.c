@@ -14,6 +14,7 @@
 
 #include "mcc_generated_files/adc/adc.h"
 #include "mcc_generated_files/system/pins.h"
+#include "mcc_generated_files/system/system.h"
 
 SSPA sspas[3] = {
     {MUTE, 0x0000, 0x00, 0x00000000},
@@ -36,20 +37,26 @@ SSPA sspas[3] = {
  */
 adc_result_t getADCValue(adc_channel_t channel) {
     adc_result_t sum = 0;
-
-    ADC_StartConversion();
+    
     ADC_SelectChannel(channel);
 
-    for (uint8_t i = 0; i < 32; i++)
-        if (ADC_IsConversionDone())
-            sum += ADC_GetConversionResult(); 
-    
-    
-    adc_result_t aux;
-    
-    aux = sum >> 5;
+    ADC_StartConversion();
 
-    return aux; // Divide per 32 tramite shift
+    __delay_ms(2);
+
+    for (uint8_t i = 0; i < 32; )
+    {
+        if (ADC_IsConversionDone())
+        {
+            i++;
+            sum += ADC_GetConversionResult(); 
+            
+            ADC_StartConversion();
+            __delay_ms(2);
+        }
+    }
+    
+    return sum >> 5; // Divide per 32 tramite shift
 }
 
 int16_t ADC2Celsius(adc_result_t v) {

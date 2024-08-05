@@ -27,9 +27,9 @@ extern "C" {
 #define VDD             5 // Volts: valore di tensione di alimentazione 4.3-4.6V
 
     // Temperatura min, max = -40, 70 (gradi Celsius)
-#define TEMP_FACTOR_N   (int16_t)(367822)               // Fattore di conversione 88.54°C/V * VDD * 1000
-#define TEMP_FACTOR_D   (int16_t)(1024000)              // 2^10 * 1000
-#define TEMP_OFFSET     (int16_t)(160)
+#define TEMP_FACTOR_N   (int32_t)(428)              // Fattore di conversione 88.54°C/V * VDD
+#define TEMP_FACTOR_D   (int32_t)(4096)             // 2^12
+#define TEMP_OFFSET     (int32_t)(160)              // °C offset (159,65)
 
     // Corrente min, max = 0, 10 (Ampere)
 #define CURR_FACTOR_N   (uint16_t)(430)                 // Fattore di conversione 10A/V * VDD * 10
