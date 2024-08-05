@@ -37,13 +37,9 @@ SSPA sspas[3] = {
  */
 adc_result_t getADCValue(adc_channel_t channel) {
     adc_result_t sum = 0;
-    adc_result_t sample;
     
     for (uint8_t i = 0; i < 32; i++ )
-    {
-        sample = ADC_GetConversion(channel); 
-        sum += sample;
-    }
+        sum += ADC_GetConversion(channel);
     
     return sum >> 5; // Divide per 32 tramite shift
 }
