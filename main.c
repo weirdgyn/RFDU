@@ -122,11 +122,11 @@ int main(void) {
     INTERRUPT_PeripheralInterruptEnable();
 
     //INTERRUPT_PeripheralInterruptDisable(); 
- 
+
 #ifdef SEND_HELLO
     EUSART_sendMsg("RFDU", 4);
 #endif
-    uint8_t data = 0x00;       
+    uint8_t data = 0x00;
 
     for (;;) {
         if (EUSART_IsRxReady()) {
@@ -134,8 +134,7 @@ int main(void) {
 
             if (Parse(data))
                 ProcessMsg(parser.m_MsgID, parserDataBuffer);
-        }
-        else
+        } else
             NOP();
     }
 }

@@ -26,18 +26,20 @@ extern "C" {
 
 #define KAPS_ADDR   0x51    // KAPS board i2c slave address
 
-    // Mappa
+// Registers map
 
-#define KAPS_STATUS_REG     0xFF
-#define KAPS_POS_IDX_REG    0xFE
+#define RD_BIT              (1<<8)
+    
+#define KAPS_STATUS_REG     0x1B
+#define KAPS_POS_IDX_REG    0x1A
 #define KAPS_CURR_POS_REG   0x00
-#define KAPS_ABS_POS_REG    0x01
-#define KAPS_REL_POS_REG    0x02
+#define KAPS_ABS_POS_REG    0x04
+#define KAPS_REL_POS_REG    0x08
 
-#define KAPS_POS1_REG       0x04
-#define KAPS_POS2_REG       0x08
-#define KAPS_POS3_REG       0x0C
-#define KAPS_POS4_REG       0x10
+#define KAPS_POS1_REG       0x0A
+#define KAPS_POS2_REG       0x0E
+#define KAPS_POS3_REG       0x12
+#define KAPS_POS4_REG       0x16
     //
 
     typedef enum {

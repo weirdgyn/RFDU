@@ -43,25 +43,47 @@ adc_result_t getADCValue(adc_channel_t channel) {
     
     return sum >> 5; // Divide per 32 tramite shift
 }
-
-int16_t ADC2Celsius(adc_result_t v) {
-    int32_t value = (int32_t) v;
+/**
+ * @brief Converte il valore Vadc passato come parametro in gradi Celsius.
+ * 
+ * La funzione di trasferimento del sensore è: T°[C] = 159,65-[85,54*Vadc]
+ * 
+ * @param Vadc valore acquisito
+ * @return temperatura in gradi Celsius
+ */
+int16_t ADC2Celsius(adc_result_t Vadc) {
+    int32_t value = (int32_t) Vadc;
     int32_t result = TEMP_OFFSET - (value * TEMP_FACTOR_N) / TEMP_FACTOR_D;
 
     return (int16_t) result;
 }
 
-uint32_t ADC2Amp(adc_result_t v) {
-    int32_t value = (int32_t) v;
+/**
+ * @brief Converte il valore Vadc passato come parametro in gradi Ampere.
+ * 
+ * La funzione di trasferimento del sensore è: I[A] = 10*Vadc
+ * 
+ * @param Vadc valore acquisito
+ * @return corrente in Ampere
+ */
+uint32_t ADC2Amp(adc_result_t Vadc) {
+    int32_t value = (int32_t) Vadc;
     int32_t result = CURR_OFFSET + (value * CURR_FACTOR_N) / CURR_FACTOR_D;
 
     return (uint32_t) result;
 }
 
-uint8_t ADC2dBm(adc_result_t v) {
-    int32_t value = (int32_t) v;
+/**
+ * @brief Converte il valore Vadc passato come parametro in dBm.
+ * 
+ * La funzione di trasferimento del sensore è: P[dBm] = 34+3,33*Vadc
+ * 
+ * @param Vadc valore acquisito
+ * @return livello segnale in dBm
+ */
+uint8_t ADC2dBm(adc_result_t Vadc) {
+    int32_t value = (int32_t) Vadc;
     int32_t result = PWR_OFFSET + (value * PWR_FACTOR_N) / PWR_FACTOR_D;
-
     return (uint8_t) result;
 }
 

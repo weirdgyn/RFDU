@@ -17,15 +17,17 @@
 
 KAPS kaps = {KAPS_ADDR, KAPS_IDLE, 0x00000000, 0x00};
 
+static uint8_t buffer[8];
+
 /**
  * @brief Imposta la posizione di indice idx sulla periferica kaps (tramite bus i2c).
  * @param idx indice di posizione
  */
 void KAPS_GoToIdx(uint8_t idx) {
-    uint8_t reg = KAPS_POS_IDX_REG;
+    buffer[0] = KAPS_POS_IDX_REG;
+    buffer[1] = idx;
 
-    I2C1_Write(kaps.m_bAddr, &reg, 1);
-    I2C1_Write(kaps.m_bAddr, &idx, 1);
+    I2C1_Write(kaps.m_bAddr, buffer, 2);
     //TODO attende KAPS.m_Status == KAPS_MOVING ?
 }
 
@@ -34,13 +36,11 @@ void KAPS_GoToIdx(uint8_t idx) {
  * @param pos posizione assoluta
  */
 void KAPS_setAbsPos(uint32_t pos) {
-    uint8_t reg = KAPS_ABS_POS_REG;
-    uint8_t data[4]; //TODO endianism?    
+    buffer[0] = KAPS_ABS_POS_REG;
 
-    unpackLong(pos, data);
+    unpackLong(pos, buffer + 1);
 
-    I2C1_Write(kaps.m_bAddr, &reg, 1);
-    I2C1_Write(kaps.m_bAddr, data, 4);
+    I2C1_Write(kaps.m_bAddr, buffer, 5);
     //TODO attende KAPS.m_Status == KAPS_MOVING ?
 }
 
@@ -49,11 +49,10 @@ void KAPS_setAbsPos(uint32_t pos) {
  * @param offset posizione relativa
  */
 void KAPS_setRelPos(int8_t offset) {
-    uint8_t reg = KAPS_REL_POS_REG;
-    uint8_t value = (uint8_t)offset;
+    buffer[0] = KAPS_REL_POS_REG;
+    buffer[1] = (uint8_t) offset;
 
-    I2C1_Write(kaps.m_bAddr, &reg, 1);
-    I2C1_Write(kaps.m_bAddr, &value, 1);
+    I2C1_Write(kaps.m_bAddr, buffer, 2);
     //TODO attende KAPS.m_Status == KAPS_MOVING ?
 }
 
@@ -66,20 +65,19 @@ void KAPS_StorePos(uint8_t idx, uint32_t pos) {
     idx--; // indici a base 0
 
     uint8_t reg = (idx)*4 + KAPS_POS1_REG;
-    uint8_t data[4]; //TODO endianism?
 
-    data[0] = idx;
-    unpackLong(pos, &data[0]);
+    buffer[0] = reg;
+    buffer[1] = idx;
+    unpackLong(pos, buffer + 2);
 
-    I2C1_Write(kaps.m_bAddr, &reg, 1);
-    I2C1_Write(kaps.m_bAddr, data, 4);
+    I2C1_Write(kaps.m_bAddr, buffer, 6);
 }
 
 /**
  * @brief Acquisisce lo stato della periferica kaps (tramite bus i2c).
  */
 void KAPS_getStatus() {
-    uint8_t reg = KAPS_STATUS_REG;
+    uint8_t reg = (uint8_t) (KAPS_STATUS_REG | RD_BIT);
     uint8_t data = 0x00;
 
     I2C1_Write(kaps.m_bAddr, &reg, 1);
@@ -92,7 +90,7 @@ void KAPS_getStatus() {
  * @brief Acquisisce l'indice di posizione della periferica kaps (tramite bus i2c).
  */
 void KAPS_getIndex() {
-    uint8_t reg = KAPS_POS_IDX_REG;
+    uint8_t reg = (uint8_t) (KAPS_POS_IDX_REG | RD_BIT);
     uint8_t data = 0x00;
 
     I2C1_Write(kaps.m_bAddr, &reg, 1);
@@ -105,7 +103,7 @@ void KAPS_getIndex() {
  * @brief Acquisisce la posizione assoluta della periferica kaps (tramite bus i2c).
  */
 void KAPS_getPos() {
-    uint8_t reg = KAPS_CURR_POS_REG;
+    uint8_t reg = (uint8_t) (KAPS_CURR_POS_REG | RD_BIT);
     uint8_t data[4] = {0x00, 0x00, 0x00, 0x00}; //TODO endianism?
 
     I2C1_Write(kaps.m_bAddr, &reg, 1);

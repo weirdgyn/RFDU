@@ -101,8 +101,8 @@ bool Parse(uint8_t data) {
                 case NVT_RFDU_GetMute:
                 case NVT_RFDU_SSPATemp:
                 case NVT_RFDU_SSPAPout:
-                case NVT_RFDU_TuneSetRP:
                     parser.m_bEcho = false;
+                case NVT_RFDU_TuneSetRP:
                 case NVT_RFDU_GoToPos:
                     parser.m_bReplySize = 1;
                     parser.m_bDataSize = 1;
