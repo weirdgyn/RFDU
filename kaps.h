@@ -28,7 +28,7 @@ extern "C" {
 
 // Registers map
 
-#define RD_BIT              (1<<8)
+#define RD_BIT              (1<<7)
     
 #define KAPS_STATUS_REG     0x1B
 #define KAPS_POS_IDX_REG    0x1A
@@ -40,8 +40,10 @@ extern "C" {
 #define KAPS_POS2_REG       0x0E
 #define KAPS_POS3_REG       0x12
 #define KAPS_POS4_REG       0x16
-    //
+//
 
+#define TX_BUFFER_SIZE  8
+    
     typedef enum {
         KAPS_IDLE = 0x00, /**< errore di formato/messaggio sconosciuto */
         KAPS_MOVING = 0x01, /**< perirferica KAPS occupata/in movimento, NB rinominata per non sovrapporsi con error_message_t::KAPS_BUSY */
